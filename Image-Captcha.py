@@ -1,5 +1,6 @@
+# Necessary imports
 import tkinter as tk
-from tkinter import CENTER, END, StringVar, messagebox
+from tkinter import CENTER, END, messagebox
 from PIL import Image, ImageTk
 from captcha.image import ImageCaptcha
 import string,random
@@ -7,7 +8,7 @@ import os
 
 def random_string():
     # hash length
-    N = 6
+    N = random.choice([5,6,7])
     s = string.ascii_uppercase + string.ascii_lowercase + string.digits
     # generate a random string of length 5
     global captcha_text
@@ -46,7 +47,7 @@ random_string()
 print(captcha_text)
 
 
-root.title("CAPTCHA Generation")
+root.title("Captcha Generation")
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 app_width = 480
