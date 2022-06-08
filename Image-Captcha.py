@@ -39,7 +39,7 @@ def regenerate():
     print(captcha_text)
     img = ImageTk.PhotoImage(Image.open(path))
     captchaLbl.config(image=img,height="45px",width="130px")
-          
+    captchaLbl.image = img     
 random_string()
 print(captcha_text)
 
