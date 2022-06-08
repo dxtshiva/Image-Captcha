@@ -4,7 +4,7 @@
 
 ##### Once the image is displayed it takes input from the user and then verifies that whether the user has enterd the correct captcha text or not. 
 
-#### If the captcha is correct it displays a message and then generates a new captcha text. 
+##### If the captcha is correct it displays a message and then generates a new captcha text. 
 
 ##### If the captcha is incorrect it displays a message for user to re-enter the captcha.
 
