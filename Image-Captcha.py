@@ -35,7 +35,8 @@ introLbl.grid(row=2,column=1,pady=28,padx=90,columnspan=4,rowspan=2);
 introLbl.config(anchor=CENTER)
 
 captchaLbl = tk.Label(root,image=path)
-captchaLbl.config(height="45px",width="130px",image=path)
+captchaLbl.config(height="45px",width="130px")
+captchaLbl.image=path
 captchaLbl.grid(row=4,column=1,pady=8,columnspan=4)
 
 root.mainloop()
