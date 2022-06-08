@@ -15,3 +15,5 @@
 ## Regenerate function working but not displaying image to GUI
 
 ## Image bug fixed. Submit not working properly after regenerate
+
+# Code Fixed. Project working completly

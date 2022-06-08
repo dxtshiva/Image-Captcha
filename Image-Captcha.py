@@ -1,9 +1,9 @@
+import tkinter as tk
+from tkinter import CENTER, END, StringVar, messagebox
+from PIL import Image, ImageTk
 from captcha.image import ImageCaptcha
 import string,random
-import tkinter as tk
-from tkinter import CENTER, END,messagebox
-from PIL import Image, ImageTk
-from os import remove
+import os
 
 def random_string():
     # hash length
@@ -17,14 +17,14 @@ def random_string():
     global path
     path = './' + captcha_text+ '.png'
     image.write(captcha_text, path)
-    
+
 root = tk.Tk()
-userCaptcha = tk.StringVar()
+userCaptcha = StringVar()
 captchaLbl = tk.Label(root)
 captchaTxt = tk.Entry(root)
 
 def submit():
-    
+
     if userCaptcha.get()=="":
         messagebox.showwarning("","Enter the captcha")
     elif userCaptcha.get()==captcha_text:
@@ -36,14 +36,16 @@ def submit():
         messagebox.showerror("","Enter the correct captcha")
 
 def regenerate():
-    remove(path)
+    os.remove(path)
     random_string()
     print(captcha_text)
     img = ImageTk.PhotoImage(Image.open(path))
     captchaLbl.config(image=img,height="45px",width="130px")
-    captchaLbl.image = img     
+    captchaLbl.image= img
+
 random_string()
 print(captcha_text)
+
 
 root.title("CAPTCHA Generation")
 screen_width = root.winfo_screenwidth()
@@ -72,4 +74,13 @@ captchaTxt.grid(row=5,column=4,pady=8)
 submitBtn = tk.Button(root,text="Submit",command=submit,font=("Arial",13))
 submitBtn.grid(row=7,column=2,pady=8)
 
+
+resetBtn = tk.Button(root,text="Regenerate",command=regenerate,font=("Arial",13))
+resetBtn.grid(row=7,column=3,pady=8,padx=10)
+
+def on_closing():
+    os.remove(path)
+    root.destroy()
+
+root.protocol("WM_DELETE_WINDOW", on_closing)
 root.mainloop()
