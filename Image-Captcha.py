@@ -3,6 +3,7 @@ import string,random
 import tkinter as tk
 from tkinter import CENTER
 from PIL import Image, ImageTk
+
 def random_string():
     # hash length
     N = 6
@@ -34,9 +35,9 @@ introLbl = tk.Label(root,text="Welcome to the captcha generator",font=("Arial",1
 introLbl.grid(row=2,column=1,pady=28,padx=90,columnspan=4,rowspan=2);
 introLbl.config(anchor=CENTER)
 
-captchaLbl = tk.Label(root,image=path)
-captchaLbl.config(height="45px",width="130px")
-captchaLbl.image=path
+captchaLbl = tk.Label(root)
+img = ImageTk.PhotoImage(Image.open(path))
+captchaLbl.config(height="45px",width="130px",image=img)
 captchaLbl.grid(row=4,column=1,pady=8,columnspan=4)
 
 root.mainloop()
