@@ -9,3 +9,7 @@
 ## Image issue fixed using Imagetk and Image
 
 #### GUI completed button left to be created
+
+## Submit Button created
+
+## Regenerate function working but not displaying image to GUI

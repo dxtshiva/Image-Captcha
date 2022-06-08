@@ -3,6 +3,7 @@ import string,random
 import tkinter as tk
 from tkinter import CENTER, END,messagebox
 from PIL import Image, ImageTk
+from os import remove
 
 def random_string():
     # hash length
@@ -28,10 +29,17 @@ def submit():
         messagebox.showinfo("Success","Captcha verified successfully!")
         captchaTxt.config(text="")
         captchaTxt.delete(0,END)
-        
+        regenerate()
     else:
         messagebox.showerror("","Enter the correct captcha")
-        
+
+def regenerate():
+    remove(path)
+    random_string()
+    print(captcha_text)
+    img = ImageTk.PhotoImage(Image.open(path))
+    captchaLbl.config(image=img,height="45px",width="130px")
+          
 random_string()
 print(captcha_text)
 
