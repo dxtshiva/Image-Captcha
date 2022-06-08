@@ -1,7 +1,7 @@
 from captcha.image import ImageCaptcha
 import string,random
 import tkinter as tk
-from tkinter import CENTER
+from tkinter import CENTER, END,messagebox
 from PIL import Image, ImageTk
 
 def random_string():
@@ -16,11 +16,25 @@ def random_string():
     global path
     path = './' + captcha_text+ '.png'
     image.write(captcha_text, path)
+    
+root = tk.Tk()
+userCaptcha = tk.StringVar()
 
+def submit():
+    
+    if userCaptcha.get()=="":
+        messagebox.showwarning("","Enter the captcha")
+    elif userCaptcha.get()==captcha_text:
+        messagebox.showinfo("Success","Captcha verified successfully!")
+        captchaTxt.config(text="")
+        captchaTxt.delete(0,END)
+        
+    else:
+        messagebox.showerror("","Enter the correct captcha")
+        
 random_string()
 print(captcha_text)
 
-root = tk.Tk()
 root.title("CAPTCHA Generation")
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
@@ -44,8 +58,10 @@ entryLbl = tk.Label(root,text="Enter the captcha text shown above: ",font=("Aria
 entryLbl.grid(row=5,column=1,columnspan=3,pady=8,padx=25)
 
 captchaTxt = tk.Entry(root)
-userCaptcha = tk.StringVar()
 captchaTxt.config(font=("Arial",14),width=12,textvariable=userCaptcha)
 captchaTxt.grid(row=5,column=4,pady=8)
+
+submitBtn = tk.Button(root,text="Submit",command=submit,font=("Arial",13))
+submitBtn.grid(row=7,column=2,pady=8)
 
 root.mainloop()
