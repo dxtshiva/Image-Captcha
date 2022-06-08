@@ -19,15 +19,14 @@ def random_string():
     image.write(captcha_text, path)
 
 root = tk.Tk()
-userCaptcha = StringVar()
 captchaLbl = tk.Label(root)
 captchaTxt = tk.Entry(root)
 
 def submit():
-
-    if userCaptcha.get()=="":
+    userCaptcha = captchaTxt.get().strip()
+    if userCaptcha=="":
         messagebox.showwarning("","Enter the captcha")
-    elif userCaptcha.get()==captcha_text:
+    elif userCaptcha==captcha_text:
         messagebox.showinfo("Success","Captcha verified successfully!")
         captchaTxt.config(text="")
         captchaTxt.delete(0,END)
@@ -68,12 +67,11 @@ captchaLbl.grid(row=4,column=1,pady=8,columnspan=4)
 entryLbl = tk.Label(root,text="Enter the captcha text shown above: ",font=("Arial",13))
 entryLbl.grid(row=5,column=1,columnspan=3,pady=8,padx=25)
 
-captchaTxt.config(font=("Arial",14),width=12,textvariable=userCaptcha)
+captchaTxt.config(font=("Arial",14),width=12)
 captchaTxt.grid(row=5,column=4,pady=8)
 
 submitBtn = tk.Button(root,text="Submit",command=submit,font=("Arial",13))
 submitBtn.grid(row=7,column=2,pady=8)
-
 
 resetBtn = tk.Button(root,text="Regenerate",command=regenerate,font=("Arial",13))
 resetBtn.grid(row=7,column=3,pady=8,padx=10)
