@@ -40,4 +40,12 @@ img = ImageTk.PhotoImage(Image.open(path))
 captchaLbl.config(height="45px",width="130px",image=img)
 captchaLbl.grid(row=4,column=1,pady=8,columnspan=4)
 
+entryLbl = tk.Label(root,text="Enter the captcha text shown above: ",font=("Arial",13))
+entryLbl.grid(row=5,column=1,columnspan=3,pady=8,padx=25)
+
+captchaTxt = tk.Entry(root)
+userCaptcha = tk.StringVar()
+captchaTxt.config(font=("Arial",14),width=12,textvariable=userCaptcha)
+captchaTxt.grid(row=5,column=4,pady=8)
+
 root.mainloop()
