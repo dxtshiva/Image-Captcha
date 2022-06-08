@@ -20,6 +20,8 @@ def random_string():
     
 root = tk.Tk()
 userCaptcha = tk.StringVar()
+captchaLbl = tk.Label(root)
+captchaTxt = tk.Entry(root)
 
 def submit():
     
@@ -57,7 +59,6 @@ introLbl = tk.Label(root,text="Welcome to the captcha generator",font=("Arial",1
 introLbl.grid(row=2,column=1,pady=28,padx=90,columnspan=4,rowspan=2);
 introLbl.config(anchor=CENTER)
 
-captchaLbl = tk.Label(root)
 img = ImageTk.PhotoImage(Image.open(path))
 captchaLbl.config(height="45px",width="130px",image=img)
 captchaLbl.grid(row=4,column=1,pady=8,columnspan=4)
@@ -65,7 +66,6 @@ captchaLbl.grid(row=4,column=1,pady=8,columnspan=4)
 entryLbl = tk.Label(root,text="Enter the captcha text shown above: ",font=("Arial",13))
 entryLbl.grid(row=5,column=1,columnspan=3,pady=8,padx=25)
 
-captchaTxt = tk.Entry(root)
 captchaTxt.config(font=("Arial",14),width=12,textvariable=userCaptcha)
 captchaTxt.grid(row=5,column=4,pady=8)
 
