@@ -1,19 +1,30 @@
-#### GUI added
+### Random Captcha Image Generator using Python and Tkinter
 
-### captcha generated
+##### This project is created using python tkinter to create the GUI of the project. This project generates a captcha image of length either 5, 6, or 7, and then displays it to the GUI.
 
-### Image not added to GUI
+##### Once the image is displayed it takes input from the user and then verifies that whether the user has enterd the correct captcha text or not. 
 
-## Not able to configure image
+#### If the captcha is correct it displays a message and then generates a new captcha text. 
 
-## Image issue fixed using Imagetk and Image
+##### If the captcha is incorrect it displays a message for user to re-enter the captcha.
 
-#### GUI completed button left to be created
+##### If user has not entered any captcha it will display message to enter the captcha.
 
-## Submit Button created
+#### Libraries Used
 
-## Regenerate function working but not displaying image to GUI
+##### • tkinter
+##### • os
+##### • pillow
+##### • captcha
+##### • string
+##### • random
 
-## Image bug fixed. Submit not working properly after regenerate
+#### Steps to run the program
 
-# Code Fixed. Project working completly
+##### • Open python terminal and run "pip install captcha" to install the necessary library.
+
+##### • Open Image-Captcha.py in any code editor and run the program
+
+##### • In case you want to directly execute the program simply double click on the file.
+
+##### • In either of the case captcha must be installed using the command mentioned above else it will throw an error. 

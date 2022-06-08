@@ -50,7 +50,7 @@ def regenerate():
     random_string()
     print(captcha_text)
     img = ImageTk.PhotoImage(Image.open(path))
-    captchaLbl.config(image=img,height="45px",width="130px")
+    captchaLbl.config(image=img,height="48px",width="136px")
     captchaLbl.image= img
 
 # Generating the initial captcha text and image
