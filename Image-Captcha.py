@@ -14,4 +14,5 @@ def random_string():
     path = './' + captcha_text+ '.png'
     image.write(captcha_text, path)
 
-
+random_string()
+print(captcha_text)
